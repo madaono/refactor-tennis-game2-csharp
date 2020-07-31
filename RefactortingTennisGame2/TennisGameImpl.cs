@@ -15,14 +15,6 @@ namespace RefactortingTennisGame2
             _player1 = new Player(player1);
             _player2 = new Player(player2);
         }
-        
-        private Dictionary<int,string> _pointMap = new Dictionary<int, string>()
-        {
-            {0, "Love"},
-            {1, "Fifteen"},
-            {2, "Thirty"},
-            {3, "Forty"}
-        };
 
         public string GetScore()
         {
@@ -32,7 +24,7 @@ namespace RefactortingTennisGame2
             string score = "";
             if (p1Point == p2Point && p1Point < 4)
             {
-                score = _pointMap[p1Point];
+                score = _player1.GetRes();
                 score += "-All";
             }
 
@@ -43,8 +35,8 @@ namespace RefactortingTennisGame2
                 || p1Point > p2Point && p1Point < 4 
                 || p2Point > p1Point && p2Point < 4)
             {
-                _p1Res = _pointMap[p1Point];
-                _p2Res = _pointMap[p2Point];
+                _p1Res = _player1.GetRes();
+                _p2Res = _player2.GetRes();
                 score = _p1Res + "-" + _p2Res;
             }
             
