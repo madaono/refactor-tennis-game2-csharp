@@ -38,35 +38,16 @@ namespace RefactortingTennisGame2
             if (p1Point == p2Point && p1Point >= 3)
                 score = "Deuce";
 
-            if (p1Point > 0 && p2Point == 0)
-            {
-                _p1Res = _pointMap[p1Point];
-                _p2Res = "Love";
-                score = _p1Res + "-" + _p2Res;
-            }
-
-            if (p2Point > 0 && p1Point == 0)
-            {
-                _p2Res = _pointMap[p2Point];
-
-                _p1Res = "Love";
-                score = _p1Res + "-" + _p2Res;
-            }
-
-            if (p1Point > p2Point && p1Point < 4)
+            if ((p1Point > 0 || p2Point > 0) && (p2Point == 0 || p1Point == 0) 
+                || p1Point > p2Point && p1Point < 4 
+                || p2Point > p1Point && p2Point < 4)
             {
                 _p1Res = _pointMap[p1Point];
                 _p2Res = _pointMap[p2Point];
                 score = _p1Res + "-" + _p2Res;
             }
-
-            if (p2Point > p1Point && p2Point < 4)
-            {
-                _p1Res = _pointMap[p1Point];
-                _p2Res = _pointMap[p2Point];
-                score = _p1Res + "-" + _p2Res;
-            }
-
+            
+            
             if (p1Point > p2Point && p2Point >= 3)
             {
                 score = "Advantage player1";
