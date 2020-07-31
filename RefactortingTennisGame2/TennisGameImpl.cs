@@ -18,22 +18,20 @@ namespace RefactortingTennisGame2
 
         public string GetScore()
         {
-            var p1Point = _player1.GetPoints();
             var p2Point = _player2.GetPoints();
             
-            string score = "";
-            score += _player1.GetEqualRes(p2Point);
+            _player1.GetEqualRes(p2Point);
 
-            score = _player1.GetDeuce(p2Point);
+            _player1.GetDeuce(p2Point);
 
             _player1.GetUnequalScore(_player2);
             
             
-            score = _player1.GetAdvantage(_player2);
+            _player1.GetAdvantage(_player2);
 
-            score = _player1.GetWinner(_player2);
+            _player1.GetWinner(_player2);
             
-            return score;
+            return _player1.GetFinalScore();
         }
 
         public void WonPoint(string player)

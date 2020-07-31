@@ -94,5 +94,10 @@ namespace RefactortingTennisGame2
 
             return _score;
         }
+
+        public string GetFinalScore()
+        {
+            return _score;
+        }
     }
 }
