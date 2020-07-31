@@ -34,5 +34,15 @@ namespace RefactortingTennisGame2
         {
             return _pointMap[_points];
         }
+
+        public string GetEqualRes(int p2Point)
+        {
+            var score = "";
+            if (_points != p2Point || _points >= 4) return score;
+            score = GetRes();
+            score += "-All";
+
+            return score;
+        }
     }
 }
