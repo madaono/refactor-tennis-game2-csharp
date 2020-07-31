@@ -9,5 +9,15 @@ namespace RefactortingTennisGame2
         {
             _name = name;
         }
+
+        public void addPoint()
+        {
+            _points += 1;
+        }
+
+        public int getPoint()
+        {
+            return _points;
+        }
     }
 }
