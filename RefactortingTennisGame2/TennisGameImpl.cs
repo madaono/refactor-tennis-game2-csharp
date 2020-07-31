@@ -5,9 +5,6 @@ namespace RefactortingTennisGame2
 {
     public class TennisGameImpl : ITennisGame
     {
-        private int _p1Point = 0;
-        private int _p2Point = 0;
-
         private string _p1Res = "";
         private string _p2Res = "";
         private Player _player1;
@@ -29,61 +26,63 @@ namespace RefactortingTennisGame2
 
         public string GetScore()
         {
+            var p1Point = _player1.GetPoints();
+            var p2Point = _player2.GetPoints();
             string score = "";
-            if (_p1Point == _p2Point && _p1Point < 4)
+            if (p1Point == p2Point && p1Point < 4)
             {
-                score = _pointMap[_p1Point];
+                score = _pointMap[p1Point];
                 score += "-All";
             }
 
-            if (_p1Point == _p2Point && _p1Point >= 3)
+            if (p1Point == p2Point && p1Point >= 3)
                 score = "Deuce";
 
-            if (_p1Point > 0 && _p2Point == 0)
+            if (p1Point > 0 && p2Point == 0)
             {
-                _p1Res = _pointMap[_p1Point];
+                _p1Res = _pointMap[p1Point];
                 _p2Res = "Love";
                 score = _p1Res + "-" + _p2Res;
             }
 
-            if (_p2Point > 0 && _p1Point == 0)
+            if (p2Point > 0 && p1Point == 0)
             {
-                _p2Res = _pointMap[_p2Point];
+                _p2Res = _pointMap[p2Point];
 
                 _p1Res = "Love";
                 score = _p1Res + "-" + _p2Res;
             }
 
-            if (_p1Point > _p2Point && _p1Point < 4)
+            if (p1Point > p2Point && p1Point < 4)
             {
-                _p1Res = _pointMap[_p1Point];
-                _p2Res = _pointMap[_p2Point];
+                _p1Res = _pointMap[p1Point];
+                _p2Res = _pointMap[p2Point];
                 score = _p1Res + "-" + _p2Res;
             }
 
-            if (_p2Point > _p1Point && _p2Point < 4)
+            if (p2Point > p1Point && p2Point < 4)
             {
-                _p1Res = _pointMap[_p1Point];
-                _p2Res = _pointMap[_p2Point];
+                _p1Res = _pointMap[p1Point];
+                _p2Res = _pointMap[p2Point];
                 score = _p1Res + "-" + _p2Res;
             }
 
-            if (_p1Point > _p2Point && _p2Point >= 3)
+            if (p1Point > p2Point && p2Point >= 3)
             {
                 score = "Advantage player1";
             }
 
-            if (_p2Point > _p1Point && _p1Point >= 3)
+            if (p2Point > p1Point && p1Point >= 3)
             {
                 score = "Advantage player2";
             }
 
-            if (_p1Point >= 4 && _p2Point >= 0 && (_p1Point - _p2Point) >= 2)
+            if (p1Point >= 4 && p2Point >= 0 && (p1Point - p2Point) >= 2)
             {
                 score = "Win for player1";
             }
 
-            if (_p2Point >= 4 && _p1Point >= 0 && (_p2Point - _p1Point) >= 2)
+            if (p2Point >= 4 && p1Point >= 0 && (p2Point - p1Point) >= 2)
             {
                 score = "Win for player2";
             }
