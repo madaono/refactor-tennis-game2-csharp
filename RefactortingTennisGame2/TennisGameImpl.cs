@@ -39,7 +39,7 @@ namespace RefactortingTennisGame2
             if (p1Point == p2Point && p1Point >= 3)
                 score = "Deuce";
 
-            if ((p1Point > 0 || p2Point > 0) && (p2Point == 0 || p1Point == 0) 
+            if ((p1Point > 0 || p2Point > 0) && (p2Point == 0 || p1Point == 0) && p1Point < 4 && p2Point < 4
                 || p1Point > p2Point && p1Point < 4 
                 || p2Point > p1Point && p2Point < 4)
             {
