@@ -5,8 +5,6 @@ namespace RefactortingTennisGame2
 {
     public class TennisGameImpl : ITennisGame
     {
-        private string _p1Res = "";
-        private string _p2Res = "";
         private Player _player1;
         private Player _player2;
 
@@ -18,14 +16,11 @@ namespace RefactortingTennisGame2
 
         public string GetScore()
         {
-            var p2Point = _player2.GetPoints();
-            
-            _player1.GetEqualRes(p2Point);
+            _player1.GetEqualRes(_player2);
 
-            _player1.GetDeuce(p2Point);
+            _player1.GetDeuce(_player2);
 
             _player1.GetUnequalScore(_player2);
-            
             
             _player1.GetAdvantage(_player2);
 
