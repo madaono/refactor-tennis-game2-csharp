@@ -41,25 +41,14 @@ namespace RefactortingTennisGame2
 
             if (_p1Point > 0 && _p2Point == 0)
             {
-                if (_p1Point == 1)
-                    _p1Res = "Fifteen";
-                if (_p1Point == 2)
-                    _p1Res = "Thirty";
-                if (_p1Point == 3)
-                    _p1Res = "Forty";
-
+                _p1Res = _pointMap[_p1Point];
                 _p2Res = "Love";
                 score = _p1Res + "-" + _p2Res;
             }
 
             if (_p2Point > 0 && _p1Point == 0)
             {
-                if (_p2Point == 1)
-                    _p2Res = "Fifteen";
-                if (_p2Point == 2)
-                    _p2Res = "Thirty";
-                if (_p2Point == 3)
-                    _p2Res = "Forty";
+                _p2Res = _pointMap[_p2Point];
 
                 _p1Res = "Love";
                 score = _p1Res + "-" + _p2Res;
@@ -67,27 +56,15 @@ namespace RefactortingTennisGame2
 
             if (_p1Point > _p2Point && _p1Point < 4)
             {
-                if (_p1Point == 2)
-                    _p1Res = "Thirty";
-                if (_p1Point == 3)
-                    _p1Res = "Forty";
-                if (_p2Point == 1)
-                    _p2Res = "Fifteen";
-                if (_p2Point == 2)
-                    _p2Res = "Thirty";
+                _p1Res = _pointMap[_p1Point];
+                _p2Res = _pointMap[_p2Point];
                 score = _p1Res + "-" + _p2Res;
             }
 
             if (_p2Point > _p1Point && _p2Point < 4)
             {
-                if (_p2Point == 2)
-                    _p2Res = "Thirty";
-                if (_p2Point == 3)
-                    _p2Res = "Forty";
-                if (_p1Point == 1)
-                    _p1Res = "Fifteen";
-                if (_p1Point == 2)
-                    _p1Res = "Thirty";
+                _p1Res = _pointMap[_p1Point];
+                _p2Res = _pointMap[_p2Point];
                 score = _p1Res + "-" + _p2Res;
             }
 
