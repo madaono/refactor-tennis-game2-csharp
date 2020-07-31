@@ -7,13 +7,13 @@ namespace RefactortingTennisGame2
 
         private string _p1Res = "";
         private string _p2Res = "";
-        private string _player1Name;
-        private string _player2Name;
+        private Player _player1;
+        private Player _player2;
 
-        public TennisGameImpl(string player1Name, string player2Name)
+        public TennisGameImpl(string player1, string player2)
         {
-            _player1Name = player1Name;
-            _player2Name = player2Name;
+            _player1 = new Player(player1);
+            _player2 = new Player(player2);
         }
 
         public string GetScore()
