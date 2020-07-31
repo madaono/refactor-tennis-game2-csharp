@@ -26,36 +26,13 @@ namespace RefactortingTennisGame2
 
             score = _player1.GetDeuce(p2Point);
 
-            if ((p1Point > 0 || p2Point > 0) && (p2Point == 0 || p1Point == 0) && p1Point < 4 && p2Point < 4
-                || p1Point > p2Point && p1Point < 4 
-                || p2Point > p1Point && p2Point < 4)
-            {
-                _p1Res = _player1.GetRes();
-                _p2Res = _player2.GetRes();
-                score = _p1Res + "-" + _p2Res;
-            }
+            _player1.GetUnequalScore(_player2);
             
             
-            if (p1Point > p2Point && p2Point >= 3)
-            {
-                score = $"Advantage {_player1.Name}";
-            }
+            score = _player1.GetAdvantage(_player2);
 
-            if (p2Point > p1Point && p1Point >= 3)
-            {
-                score = $"Advantage {_player2.Name}";
-            }
-
-            if (p1Point >= 4 && p2Point >= 0 && (p1Point - p2Point) >= 2)
-            {
-                score = $"Win for {_player1.Name}";
-            }
-
-            if (p2Point >= 4 && p1Point >= 0 && (p2Point - p1Point) >= 2)
-            {
-                score = $"Win for {_player2.Name}";
-            }
-
+            score = _player1.GetWinner(_player2);
+            
             return score;
         }
 
