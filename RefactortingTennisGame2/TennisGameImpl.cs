@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Globalization;
-
 namespace RefactortingTennisGame2
 {
     public class TennisGameImpl : ITennisGame
@@ -16,15 +13,15 @@ namespace RefactortingTennisGame2
 
         public string GetScore()
         {
-            _player1.GetEqualRes(_player2);
+            _player1.CheckEqualRes(_player2);
 
-            _player1.GetDeuce(_player2);
+            _player1.CheckDeuce(_player2);
 
-            _player1.GetUnequalScore(_player2);
+            _player1.CheckUnequalScore(_player2);
             
-            _player1.GetAdvantage(_player2);
+            _player1.CheckAdvantage(_player2);
 
-            _player1.GetWinner(_player2);
+            _player1.CheckWinner(_player2);
             
             return _player1.GetFinalScore();
         }

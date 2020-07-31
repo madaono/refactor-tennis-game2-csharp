@@ -36,7 +36,7 @@ namespace RefactortingTennisGame2
             return _pointMap[_points];
         }
 
-        public void GetEqualRes(Player p2)
+        public void CheckEqualRes(Player p2)
         {
             if (_points == p2.GetPoints() && _points < 4)
             {
@@ -45,13 +45,13 @@ namespace RefactortingTennisGame2
             }
         }
 
-        public void GetDeuce(Player p2)
+        public void CheckDeuce(Player p2)
         {
             if (_points == p2.GetPoints() && _points >= 3)
                 _score = "Deuce";
         }
 
-        public void GetAdvantage(Player p2)
+        public void CheckAdvantage(Player p2)
         {
             if (_points > p2.GetPoints() && p2.GetPoints() >= 3)
             {
@@ -64,7 +64,7 @@ namespace RefactortingTennisGame2
             }
         }
 
-        public void GetUnequalScore(Player p2)
+        public void CheckUnequalScore(Player p2)
         {
             var p2Point = p2.GetPoints();
             if ((_points > 0 || p2Point > 0) && (p2Point == 0 || _points == 0) && _points < 4 && p2Point < 4
@@ -75,7 +75,7 @@ namespace RefactortingTennisGame2
             }
         }
 
-        public void GetWinner(Player p2)
+        public void CheckWinner(Player p2)
         {
             var p2Point = p2.GetPoints();
             if (_points >= 4 && p2Point >= 0 && (_points - p2Point) >= 2)
