@@ -16,12 +16,6 @@ namespace RefactortingTennisGame2
             _player2 = new Player(player2);
         }
 
-        public int P1Point
-        {
-            set { _p1Point = value; }
-            get { return _p1Point; }
-        }
-
         public string GetScore()
         {
             string score = "";
@@ -117,9 +111,9 @@ namespace RefactortingTennisGame2
         public void WonPoint(string player)
         {
             if (player == "player1")
-                _player1.addPoint();
+                _player1.AddPoint();
             else
-                _player2.addPoint();
+                _player2.AddPoint();
         }
     }
 }

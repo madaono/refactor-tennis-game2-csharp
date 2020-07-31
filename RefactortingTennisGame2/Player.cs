@@ -2,20 +2,20 @@ namespace RefactortingTennisGame2
 {
     public class Player
     {
-        private string _name;
+        public string Name;
         private int _points = 0;
 
         public Player(string name)
         {
-            _name = name;
+            Name = name;
         }
 
-        public void addPoint()
+        public void AddPoint()
         {
             _points += 1;
         }
 
-        public int getPoint()
+        public int GetPoints()
         {
             return _points;
         }
