@@ -28,6 +28,7 @@ namespace RefactortingTennisGame2
         {
             var p1Point = _player1.GetPoints();
             var p2Point = _player2.GetPoints();
+            
             string score = "";
             if (p1Point == p2Point && p1Point < 4)
             {
@@ -50,22 +51,22 @@ namespace RefactortingTennisGame2
             
             if (p1Point > p2Point && p2Point >= 3)
             {
-                score = "Advantage player1";
+                score = $"Advantage {_player1.Name}";
             }
 
             if (p2Point > p1Point && p1Point >= 3)
             {
-                score = "Advantage player2";
+                score = $"Advantage {_player2.Name}";
             }
 
             if (p1Point >= 4 && p2Point >= 0 && (p1Point - p2Point) >= 2)
             {
-                score = "Win for player1";
+                score = $"Win for {_player1.Name}";
             }
 
             if (p2Point >= 4 && p1Point >= 0 && (p2Point - p1Point) >= 2)
             {
-                score = "Win for player2";
+                score = $"Win for {_player2.Name}";
             }
 
             return score;
