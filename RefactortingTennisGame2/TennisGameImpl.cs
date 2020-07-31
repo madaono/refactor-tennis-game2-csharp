@@ -22,10 +22,9 @@ namespace RefactortingTennisGame2
             var p2Point = _player2.GetPoints();
             
             string score = "";
-            score = _player1.GetEqualRes(p2Point);
+            score += _player1.GetEqualRes(p2Point);
 
-            if (p1Point == p2Point && p1Point >= 3)
-                score = "Deuce";
+            score = _player1.GetDeuce(p2Point);
 
             if ((p1Point > 0 || p2Point > 0) && (p2Point == 0 || p1Point == 0) && p1Point < 4 && p2Point < 4
                 || p1Point > p2Point && p1Point < 4 

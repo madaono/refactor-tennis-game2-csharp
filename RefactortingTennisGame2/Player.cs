@@ -6,8 +6,9 @@ namespace RefactortingTennisGame2
     {
         public string Name;
         private int _points = 0;
+        private string _score = "";
         
-        private Dictionary<int,string> _pointMap = new Dictionary<int, string>()
+        private Dictionary<int, string> _pointMap = new Dictionary<int, string>()
         {
             {0, "Love"},
             {1, "Fifteen"},
@@ -37,12 +38,19 @@ namespace RefactortingTennisGame2
 
         public string GetEqualRes(int p2Point)
         {
-            var score = "";
-            if (_points != p2Point || _points >= 4) return score;
-            score = GetRes();
-            score += "-All";
+            if (_points == p2Point && _points < 4)
+            {
+                _score = _pointMap[_points];
+                _score += "-All";
+            }
+            return _score;
+        }
 
-            return score;
+        public string GetDeuce(int p2Point)
+        {
+            if (_points == p2Point && _points >= 3)
+                _score = "Deuce";
+            return _score;
         }
     }
 }
