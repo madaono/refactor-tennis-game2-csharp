@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Globalization;
+
 namespace RefactortingTennisGame2
 {
     public class TennisGameImpl : ITennisGame
@@ -15,18 +18,21 @@ namespace RefactortingTennisGame2
             _player1 = new Player(player1);
             _player2 = new Player(player2);
         }
+        
+        private Dictionary<int,string> _pointMap = new Dictionary<int, string>()
+        {
+            {0, "Love"},
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"}
+        };
 
         public string GetScore()
         {
             string score = "";
             if (_p1Point == _p2Point && _p1Point < 4)
             {
-                if (_p1Point == 0)
-                    score = "Love";
-                if (_p1Point == 1)
-                    score = "Fifteen";
-                if (_p1Point == 2)
-                    score = "Thirty";
+                score = _pointMap[_p1Point];
                 score += "-All";
             }
 
